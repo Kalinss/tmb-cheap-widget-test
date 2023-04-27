@@ -55,7 +55,7 @@
 
     <!-- BODY -->
     <body>
-    <div class="btns">
+    <div class="btns" id="btns">
         <button onclick="window.cheapsender._eventBus.publish('container_1_show');"> Вызвать форму подписки </button>
         <button onclick="window.cheapsender._eventBus.publish('container_1_hide');"> Скрыть форму подписки </button>
     </div>
@@ -515,6 +515,16 @@
             } else {
                 cheapsenderFormInit()
             }
+
+
+
+        </script>
+        <script>
+            const btns = document.getElementById('btns');
+            btns.innerHTML = `
+            <button onclick="window.cheapsender._eventBus.publish('container_${params.id}_show');"> Вызвать форму подписки </button>
+            <button onclick="window.cheapsender._eventBus.publish('container_${params.id}_hide');"> Скрыть форму подписки </button>
+            `
         </script>
 
         <!-- Back To Top -->
