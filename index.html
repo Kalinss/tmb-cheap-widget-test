@@ -21,7 +21,7 @@
 
 
 <body style="height: 100vh; padding: 40px">
-    <h1>Тестовая страница</h1>
+    <h1>Тестовая страница 1</h1>
 
     <div class="row">
         <div class="row__script">
@@ -36,17 +36,37 @@
     </div>
 
 
-    <script defer>
-        const script = localStorage.getItem('scriptWidget');
-        const div = document.createElement('div');
-        div.innerHTML = script;
-        const body = document.querySelector('body')
-        body.appendChild(div);
+<!--    <script defer>-->
+<!--        const script = localStorage.getItem('scriptWidget');-->
+<!--        const div = document.createElement('div');-->
+<!--        div.innerHTML = script;-->
+<!--        const body = document.querySelector('body')-->
+<!--        body.appendChild(div);-->
 
-        document.open();
-        document.write(script);
-        document.close();
+<!--        document.open();-->
+<!--        document.write(script);-->
+<!--        document.close();-->
+<!--    </script>-->
+
+    <script src="https://test.frontend.cheapsender.email/form/index.js" defer></script>
+    <script defer>
+        var cheapsenderFormInit = function () {
+            new window.cheapsender.PopupWidget({
+                uuid:"d8045b9f-474e-4374-a625-90912b1f85da",
+                token:"c444b1d3-f1b2-419a-bef1-a20bd49ee72f",
+                id:1
+            }).init();
+        };
+        if (document.readyState === "loading") {
+            document.addEventListener('DOMContentLoaded', function () {
+                cheapsenderFormInit()
+            })
+        } else {
+            cheapsenderFormInit()
+        }
     </script>
+
+
 
 </body>
 </html>
