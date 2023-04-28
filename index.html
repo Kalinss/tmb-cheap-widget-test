@@ -50,11 +50,12 @@
                     {}
                 );
         </script>
-    </head>
+           </head>
     <!-- END HEAD -->
 
     <!-- BODY -->
     <body>
+
     <div class="btns" id="btns">
         <button onclick="window.cheapsender._eventBus.publish('container_1_show');"> Вызвать форму подписки </button>
         <button onclick="window.cheapsender._eventBus.publish('container_1_hide');"> Скрыть форму подписки </button>
@@ -499,8 +500,11 @@
         </footer>
         <!--========== END FOOTER ==========-->
 
-        <script src="https://test.frontend.cheapsender.email/form/index.js" defer></script>
-        <script defer>
+    <script defer>
+        var script = document.createElement('script');
+
+        script.onload = function () {
+
             var cheapsenderFormInit = function () {
                 new window.cheapsender.PopupWidget({
                     uuid:params.uuid,
@@ -516,9 +520,13 @@
                 cheapsenderFormInit()
             }
 
+        };
+        script.src = params.url;
 
+        document.head.appendChild(script); //or something of the likes
 
-        </script>
+    </script>
+
         <script>
             const btns = document.getElementById('btns');
             btns.innerHTML = `
